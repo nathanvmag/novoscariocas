@@ -40,13 +40,29 @@
 	<link rel="stylesheet" href="css/flexslider.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
-
+	
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Google Map -->
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js" type="text/javascript"></script>
+	
+	<!-- MAIN JS -->
+	<script src="js/main.js"></script>
 
 	</head>
 	<body id = "body">
@@ -74,29 +90,70 @@
 	<div id="best-deal">
 		<div class="container">
 			<div class="row" id= "bestrow">
+
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box" data-animate-effect="fadeIn">
 					<h2>Digite a senha de Administrador</h2>
 					
 				</div>			
 
 
-			</div>
-			<div class="col-md-8 col-md-push-4 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+			
+			<div class="col-md-8 col-md-push-4 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0" data-animate-effect="fadeIn">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input class="form-control" placeholder="Senha" type="password" Value="" name="senha">
+								<input id="pass" class="form-control" placeholder="Senha" type="password" Value="" name="senha">
 							</div>
 						</div>						
 					</div>
 				</div>
-				<div class="col-md-5 col-md-push-5">
+				<div class="col-md-8 col-md-push-5 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0" data-animate-effect="fadeIn">
 							<div class="form-group">
-								<input value="Entrar" class="btn btn-primary" type="submit">
+								<input id="pass" value="Entrar" class="btn btn-primary" type="submit" onclick="EntrarButton()">
 							</div>
-						</div>
+						
+			</div>
+
+		
+	</div>
+
 		</div>
 	</div>
+
+	<script type="text/javascript">
+		function EntrarButton()
+		{
+			if (document.getElementById("pass").value=="123"){
+			document.getElementById("bestrow").innerHTML = "";
+			document.getElementById("bestrow").innerHTML = "<div class='col-md-8 col-md-push-4 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0' data-animate-effect='fadeIn'> <div class='row'> <div class='col-md-5 text-center fh5co-heading animate-box' data-animate-effect='fadeIn'>  </div> <div class='col-md-11'> <h2>Selecione a ação</h2> <button class='btn btn-primary' onclick='Adcionarbt()'>Adicionar um Imóvel</button> <button class='btn btn-primary' onclick='Editarbt()' >Editar um Imóvel</button> </div> </div> </div><div class='col-md-8 col-md-push-4 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0' data-animate-effect='fadeIn'></div>";
+		}
+			else alert("SENHA INCORRETA");
+			
+		}
+		function Adcionarbt() {
+			// body...
+			console.log("add");
+			document.getElementById("bestrow").innerHTML = "<div class='container'> <div class='row'> <div class='col-md-8 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0'> <div class='row'> <form action='controls.php' method='post' enctype='multipart/form-data'> <div class='col-md-10'> <div class='form-group'> <input class='form-control' placeholder='Título' name='title' type='text' value='' maxlength='80' required='required'> </div> </div> <div class='col-md-12'> <div class='form-group'> <legend>Informações</legend> </div> </div> <div class='col-md-4'> <div class='form-group'> <i class='icon-money'> </i><input id ='price' name='price' value='0' type='money' required='required'></input> </div> </div> <div class='col-md-4'> <div class='form-group'> <input type='radio' name='neg' value='0' checked> À Venda <input type='radio' name='neg' value='1'> Aluguel </div> </div> <div class='col-md-12'> <div class='form-group'> <textarea name='dcurt' class='form-control' id='' value='' cols='30' rows='3' placeholder='Descrição curta' maxlength='135' required='required'></textarea> </div> </div> <div class='col-md-12'> <div class='form-group'> <textarea name='dlong' value='' class='form-control' id='' cols='30' rows='8' placeholder='Descrição completa' required='required'></textarea> </div> </div> <div class='col-md-12'> <div class='form-group'> <legend>Localização</legend> </div> </div> <div class='col-md-6'> <div class='form-group'> <input class='form-control' name='end' value='' placeholder='Endereço' type='text' maxlength='80' required='required'> </div> </div> <div class='col-md-2'> <div class='form-group'> <input class='form-control' value='' name='num' placeholder='Num' type='number' required='required'> </div> </div> <div class='col-md-5'> <div class='form-group'> <input class='form-control' value='' name='cep' placeholder='CEP' type='number' required='required'> </div> </div> <div class='col-md-4'> <div class='form-group'> <input class='form-control' value='' name='bairro' placeholder='Bairro' type='text' required='required'> </div> </div> <div class='col-md-12'> <div class='form-group'> <legend>Detalhes</legend> </div> </div> <div class='col-md-4'> <div class='form-group'> <input class='form-control' value='' name='tipo' placeholder='Tipo (loja,Casa,apartamento)' type='text' required='required'> </div> </div> <div class='col-md-4'> <div class='form-group'> <input class='form-control' value='' name='taman' placeholder='Tamanho m²' type='number' required='required'> </div> </div> <div class='col-md-8'> <div class='form-group'> <legend>Imagens</legend> <i class='icon-image'> Imagem 1 (Imagem Capa) </i><input type='file' name='pic0' accept='image/*' required='required'></input> <i class='icon-image'> Imagem 2 </i><input type='file' name='pic1' accept='image/*' ></input> <i class='icon-image'> Imagem 3 </i><input type='file' name='pic2' accept='image/*' ></input> <i class='icon-image'> Imagem 4 </i><input type='file' name='pic3' accept='image/*' ></input> <i class='icon-image'> Imagem 5 </i><input type='file' name='pic4' accept='image/*' ></input> <i class='icon-image'> Imagem 6 </i><input type='file' name='pic5' accept='image/*' ></input> <i class='icon-image'> Imagem 7 </i><input type='file' name='pic6' accept='image/*' ></input> <i class='icon-image'> Imagem 8 </i><input type='file' name='pic7' accept='image/*' ></input> <i class='icon-image'> Imagem 9 </i><input type='file' name='pic8' accept='image/*' ></input> <i class='icon-image'> Imagem 10 </i><input type='file' name='pic9' accept='image/*' ></input> <i class='icon-image'> Imagem 11 </i><input type='file' name='pic10' accept='image/*' ></input> <i class='icon-image'> Imagem 12 </i><input type='file' name='pic11' accept='image/*' ></input> </div> </div> <div class='col-md-12'> <div class='form-group'> <input value='Adcionar Imóvel' class='btn btn-primary' type='submit'> </div> </div> </form> </div> </div> </div>";
+		}
+		function Editarbt() {
+			// body...
+			console.log("edit");
+
+		}
+		function moneychange(){
+			console.log("chage");
+			
+		}
+		$(function() {
+  $('[type=money]').maskMoney({
+    thousands: '.',
+    decimal: ','
+  });
+})
+	
+   
+
+	</script>
 
 	
 
@@ -146,51 +203,7 @@
 	
 	
 	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
-	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyV-qb64aCQfr9wfSDENsIewCM9PBFjZ8&sensor=false"></script>
-	<script>
-	  function myMap(div,end) {
-	   	var geocoder = new google.maps.Geocoder();
-		var addressInput =end;
-		var lat;
-		var long;		
- 		var geocoder = new google.maps.Geocoder();
-  		geocoder.geocode({address: addressInput}, function(results, status) {
-
-  		if (status == google.maps.GeocoderStatus.OK) {
-  		lat =results[0].geometry.location.lat();
-  		long= results[0].geometry.location.lng();
-  		console.log(lat +" "+ long);
-		var mapProp= {
-
-  				  center:new google.maps.LatLng(lat ,long),
-   				 zoom:15,
-   				 mapTypeId: google.maps.MapTypeId.ROADMAP
-
-		};  		
-		console.log(lat +" "+ long);
-		var map=new google.maps.Map(div,mapProp);
-		  var marker = new google.maps.Marker({position:new google.maps.LatLng(lat ,long),animation:google.maps.Animation.DROP});
-		  marker.setMap(map);
-    		}
- else alert("Error");
- });}
-	myMap(document.getElementById("map"),"sans pena,Tijuca");
-
-	</script>
 	
-	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
 
 	</body>
 </html>
